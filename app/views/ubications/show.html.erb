@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ubication.name %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @ubication.capacity %>
+</p>
+
+<p>
+  <strong>Subsidiary:</strong>
+  <%= @ubication.Subsidiary %>
+</p>
+
+<%= link_to 'Edit', edit_ubication_path(@ubication) %> |
+<%= link_to 'Back', ubications_path %>
