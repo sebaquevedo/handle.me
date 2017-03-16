@@ -9,7 +9,9 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 gem 'railroady'
-gem 'devise'
+gem 'devise' #for login and user registrations
+gem 'activeadmin', github: 'activeadmin' #to give posibility to manage resources to an admin
+gem 'cancancan' #for giving role managing posibilities
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server

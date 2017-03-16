@@ -19,8 +19,12 @@
         <td><%= subsidiary.address %></td>
         <td><%= subsidiary.phone %></td>
         <td><%= link_to 'Show', subsidiary %></td>
+        <% if can? :edit, Subsidiary %>
         <td><%= link_to 'Edit', edit_subsidiary_path(subsidiary) %></td>
+        <% end  %>
+        <% if can? :destroy, Subsidiary  %>
         <td><%= link_to 'Destroy', subsidiary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% end  %>
       </tr>
     <% end %>
   </tbody>
