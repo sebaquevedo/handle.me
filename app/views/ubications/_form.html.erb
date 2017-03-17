@@ -1,4 +1,4 @@
-<%= form_for(ubication) do |f| %>
+<%= form_for([@subsidiary,ubication]) do |f| %>
   <% if ubication.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ubication.errors.count, "error") %> prohibited this ubication from being saved:</h2>
@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :Subsidiary_id %>
-    <%= f.text_field :Subsidiary_id %>
+    <%= f.label :subsidiary_id %>
+    <%= f.text_field :subsidiary_id %>
   </div>
 
   <div class="actions">

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Init date:</strong>
@@ -17,8 +17,8 @@
 
 <p>
   <strong>User:</strong>
-  <%= @reservation.user %>
+  <%= @reservation.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+<%= link_to 'Edit',  edit_subsidiary_ubication_reservation_path(params[:subsidiary_id],params[:ubication_id],@reservation) %> |
+<%= link_to 'Back', subsidiary_ubication_reservations_path %>

@@ -15,17 +15,23 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = Reservation.new
+    @ubication = Ubication.find(params[:ubication_id])
+    @subsidiary = Subsidiary.find(params[:subsidiary_id])
+    
   end
 
   # GET /reservations/1/edit
   def edit
+    @ubication = Ubication.find(params[:ubication_id])
+    @subsidiary = Subsidiary.find(params[:subsidiary_id])
+    @reservation = Reservation.find(params[:id])
   end
 
   # POST /reservations
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-
+    @reservation.user = current_user
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
@@ -54,9 +60,11 @@ class ReservationsController < ApplicationController
   # DELETE /reservations/1
   # DELETE /reservations/1.json
   def destroy
+    @subsidiary = params[:subsidiary_id]
+    @ubication = params[:ubication_id]
     @reservation.destroy
     respond_to do |format|
-      format.html { redirect_to reservations_url, notice: 'Reservation was successfully destroyed.' }
+      format.html { redirect_to subsidiary_ubication_reservations_path(@subsidiary,@ubication), notice: 'Reservation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +77,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:init_date, :end_date, :cost, :user_id)
+      params.require(:reservation).permit(:init_date, :end_date, :cost, :user_id,:ubication_id,)
     end
 end

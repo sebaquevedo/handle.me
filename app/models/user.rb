@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :reservations
   has_many :user_activities
   has_many :activities,through: :user_activities
-  enum role: [:guest, :user, :manager, :admin]
+  enum role: [:guest, :user, :teacher, :admin]
 end

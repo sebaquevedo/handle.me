@@ -13,20 +13,36 @@
   </thead>
 
   <tbody>
+    <div class="row">
     <% @subsidiaries.each do |subsidiary| %>
-      <tr>
-        <td><%= subsidiary.name %></td>
-        <td><%= subsidiary.address %></td>
-        <td><%= subsidiary.phone %></td>
-        <td><%= link_to 'Show', subsidiary %></td>
-        <% if can? :edit, Subsidiary %>
-        <td><%= link_to 'Edit', edit_subsidiary_path(subsidiary) %></td>
-        <% end  %>
-        <% if can? :destroy, Subsidiary  %>
-        <td><%= link_to 'Destroy', subsidiary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-         <% end  %>
-      </tr>
+    
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="..." alt="...">
+          <div class="caption">
+          <h3> <%= subsidiary.name %></h3>
+          <h4> <%= subsidiary.address %></h4>
+          <h4><%= subsidiary.phone %></h4>
+            <p>...</p>
+            <p><%= link_to 'Ver ',subsidiary %></p>
+          </div>
+        </div>
+      </div>
+    
+ <!--    <tr>
+      <td><%= subsidiary.name %></td>
+      <td><%= subsidiary.address %></td>
+      <td><%= subsidiary.phone %></td>
+      <td><%= link_to 'Show', subsidiary %></td>
+      <% if can? :edit, Subsidiary %>
+      <td><%= link_to 'Edit', edit_subsidiary_path(subsidiary) %></td>
+      <% end  %>
+      <% if can? :destroy, Subsidiary  %>
+      <td><%= link_to 'Destroy', subsidiary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end  %>
+    </tr> -->
     <% end %>
+    </div>
   </tbody>
 </table>
 

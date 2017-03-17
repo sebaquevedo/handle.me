@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+
+
+<div class="well">
+  <div id="calendar"></div>
+</div>
+
 
 <p>
   <strong>Name:</strong>
@@ -12,8 +17,27 @@
 
 <p>
   <strong>Subsidiary:</strong>
-  <%= @ubication.Subsidiary %>
+  <%= @ubication.subsidiary.name %>
 </p>
 
-<%= link_to 'Edit', edit_ubication_path(@ubication) %> |
-<%= link_to 'Back', ubications_path %>
+<%= link_to 'Edit', edit_subsidiary_ubication_path(subsidiary_id: @ubication.subsidiary.id ,ubication_id: @ubication.id) %> |
+<%= link_to 'Back', subsidiaries_path %>
+
+
+<script>
+	// var initialize_calendar;
+ //  	initialize_calendar = function(){
+ //  	$('.calendar').each(function){
+ //  		var calendar = $(this)	
+ //  	})
+ //  };
+  
+ //  $(document).on('turbolinks:load', initialize_calendar);
+
+  $('#calendar').fullCalendar(
+    
+    events: '/subsidiary_ubication_reservation_path'+'.json'
+
+  	);
+  
+</script>

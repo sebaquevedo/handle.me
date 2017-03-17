@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316191828) do
+ActiveRecord::Schema.define(version: 20170317193158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,8 +60,10 @@ ActiveRecord::Schema.define(version: 20170316191828) do
     t.datetime "end_date"
     t.integer  "cost"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "ubication_id"
+    t.index ["ubication_id"], name: "index_reservations_on_ubication_id", using: :btree
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end
 
@@ -105,10 +107,12 @@ ActiveRecord::Schema.define(version: 20170316191828) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "role",                   default: 0
+    t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "reservations", "ubications"
   add_foreign_key "reservations", "users"
   add_foreign_key "ubications", "subsidiaries"
   add_foreign_key "user_activities", "activities"

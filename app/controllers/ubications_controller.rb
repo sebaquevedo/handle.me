@@ -19,6 +19,9 @@ class UbicationsController < ApplicationController
 
   # GET /ubications/1/edit
   def edit
+    @subsidiary = Subsidiary.find(params[:subsidiary_id])
+    @ubication = Ubication.find(params[:id])
+
   end
 
   # POST /ubications

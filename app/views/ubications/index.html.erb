@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Ubications</h1>
 
@@ -17,10 +17,10 @@
       <tr>
         <td><%= ubication.name %></td>
         <td><%= ubication.capacity %></td>
-        <td><%= ubication.Subsidiary %></td>
-        <td><%= link_to 'Show', ubication %></td>
-        <td><%= link_to 'Edit', edit_ubication_path(ubication) %></td>
-        <td><%= link_to 'Destroy', ubication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= ubication.subsidiary.name %></td>
+        <td><%= link_to 'Show', subsidiary_ubication_path(subsidiary_id: ubication.subsidiary.id ,id:ubication.id) %></td>
+        <td><%= link_to 'Edit', edit_subsidiary_ubication_path(subsidiary_id: ubication.subsidiary.id ,id: ubication.id) %></td>
+        <td><%= link_to 'Destroy', subsidiary_ubication_path(subsidiary_id: ubication.subsidiary.id ,id:ubication.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Ubication', new_ubication_path %>
+<%#= link_to 'New Ubication', new_ubication_path %>

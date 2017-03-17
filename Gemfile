@@ -12,6 +12,8 @@ gem 'railroady'
 gem 'devise' #for login and user registrations
 gem 'activeadmin', github: 'activeadmin' #to give posibility to manage resources to an admin
 gem 'cancancan' #for giving role managing posibilities
+gem 'fullcalendar-rails' # to show users reservations and activities related to them
+gem 'momentjs-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server

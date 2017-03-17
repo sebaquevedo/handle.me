@@ -2,5 +2,7 @@
 
 <%= render 'form', ubication: @ubication %>
 
-<%= link_to 'Show', @ubication %> |
-<%= link_to 'Back', ubications_path %>
+
+
+<%= link_to 'Show', subsidiary_ubication_path(params[:subsidiary_id],params[:id]) %>|
+<%= link_to 'Back', subsidiary_ubication_path %>
