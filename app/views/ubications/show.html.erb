@@ -1,9 +1,9 @@
 
 
-<div class="well">
-  <div id="calendar"></div>
+<h3>Ubication calendar</h3>
+<div class=well>
+<div id="calendar"></div>
 </div>
-
 
 <p>
   <strong>Name:</strong>
@@ -25,19 +25,15 @@
 
 
 <script>
-	// var initialize_calendar;
- //  	initialize_calendar = function(){
- //  	$('.calendar').each(function){
- //  		var calendar = $(this)	
- //  	})
- //  };
-  
- //  $(document).on('turbolinks:load', initialize_calendar);
+  $('#calendar').fullCalendar({
+  	  events: '<%= subsidiary_ubication_reservations_path(params[:subsidiary_id],params[:id],format: :json) %>',
+  	  defaultView: 'basicWeek',
+  	  header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
 
-  $('#calendar').fullCalendar(
+  });
     
-    events: '/subsidiary_ubication_reservation_path'+'.json'
-
-  	);
-  
 </script>
