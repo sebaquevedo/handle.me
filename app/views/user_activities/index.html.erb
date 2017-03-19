@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Activities</h1>
+
+<table>
+  <thead>
+    <tr>
+    <th>Nombre Alumno</th>
+      <th>Actividad</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_activities.each do |user_activity| %>
+      <tr>
+        <td> <%= user_activity.user.name %></td>
+        <td> <%= user_activity.activity.name %></td>
+        <td><%= link_to 'Show', user_user_activity_path(current_user.id,user_activity.id) %></td>
+        <td><%= link_to 'Edit', edit_user_user_activity_path(params[:user_id],user_activity.id) %></td>
+        <td><%= link_to 'Destroy', user_user_activity_path(params[:user_id],user_activity.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Activity', new_user_user_activity_path(params[:user_id]) %>

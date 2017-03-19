@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 Reservation.destroy_all
 Ubication.destroy_all
 Subsidiary.destroy_all
@@ -36,13 +37,16 @@ d4 = 3.days.from_now.change(hour: 16)
 d5 = 4.days.from_now.change(hour: 11)
 d6 = 4.days.from_now.change(hour: 12)
 
-
-Reservation.create(init_date: d1,end_date:d2,cost: 15000, user_id: a.id, ubication_id: u1.id)
-Reservation.create(init_date: d3,end_date:d4,cost: 10000, user_id: a.id, ubication_id: u1.id)
-Reservation.create(init_date: d5,end_date:d6,cost: 200000, user_id: a.id, ubication_id: u2.id)
-
 act1 = Activity.create(name: 'clases regulares pole dance', description: 'taller orientado a show blabla', enabled: true, capacity:12)
-act2 = Activity.create(name: 'crossfit', description: 'musculos y gente sudando', enabled: true, capacity:25)
+act2 = Activity.create(name: 'crossfit', description: 'entrenamiento intensivo', enabled: true, capacity:25)
+act3 = Activity.create(name: 'danza ballet', description: 'de 7 a 15 años', enabled: true, capacity:30)
+
+
+Reservation.create(init_date: d1,end_date:d2,cost: 15000, user_id: a.id, ubication_id: u1.id,activity_id:act1.id)
+Reservation.create(init_date: d3,end_date:d4,cost: 10000, user_id: a.id, ubication_id: u1.id,activity_id:act2.id)
+Reservation.create(init_date: d5,end_date:d6,cost: 200000, user_id: a.id, ubication_id: u2.id,activity_id:act3.id)
+
+
 
 UserActivity.create(user_id: a.id, activity_id: act1.id)
 UserActivity.create(user_id: b.id, activity_id: act1.id)

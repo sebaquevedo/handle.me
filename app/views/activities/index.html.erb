@@ -1,11 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 
-
-<h1>Activities</h1>
-
-
-
+<div class="page-header">
+ <h1>Actividades de la sucursal</h1>
+</div>
 
 <table>
   <thead>
@@ -19,17 +17,29 @@
   </thead>
 
   <tbody>
+  <div class="row">
     <% @activities.each do |activity| %>
-      <tr>
-        <td><%= activity.name %></td>
-        <td><%= activity.description %></td>
-        <td><%= activity.enabled %></td>
-        <td><%= activity.capacity %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3><%= activity.name %></h3>
+        <p><%= activity.description %></p>
+        <p>cupos disponibles :<%= activity.capacity %></p>
+        <p><%= link_to 'Show', activity, class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_activity_path(activity), class: 'btn btn-primary' %>
+        <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></p>
+      </div>
+    </div>
+  </div>
+
+
+
+      
     <% end %>
+    </div>
   </tbody>
 </table>
 
