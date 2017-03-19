@@ -8,6 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
+gem 'carrierwave'
 gem 'railroady'
 gem 'devise' #for login and user registrations
 gem 'activeadmin', github: 'activeadmin' #to give posibility to manage resources to an admin
