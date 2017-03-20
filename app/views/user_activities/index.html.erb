@@ -11,6 +11,7 @@
       <tr>
         <th>Nombre Alumno</th>
         <th>Actividad</th>
+        <th> Hora</th>
         <th colspan="3">Opciones</th>
       </tr>
     </thead>
@@ -20,6 +21,11 @@
       <tr>
         <td> <%= user_activity.user.name %></td>
         <td> <%= user_activity.activity.name %></td>
+        <td> <% user_activity.activity.reservations.each do |reservation| %>
+        <%= reservation.init_date.to_formatted_s(:time) %>
+        
+        <% end %>
+        </td>
         <td><%= link_to 'Ver', user_user_activity_path(current_user.id,user_activity.id), class: 'btn btn-primary'  %></td>
          <% if can? :edit, user_activity %>
         <td><%= link_to 'Editar', edit_user_user_activity_path(params[:user_id],user_activity.id),class: 'btn btn-primary' %></td>

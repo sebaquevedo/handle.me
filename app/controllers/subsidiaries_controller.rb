@@ -11,6 +11,11 @@ class SubsidiariesController < ApplicationController
   # GET /subsidiaries/1.json
   def show
     @activities = @subsidiary.activities.where(enabled: true)
+    @markers = Gmaps4rails.build_markers(@subsidiaries) do |
+      subsidiary, marker|
+      marker.lat subsidiary.latitude
+      marker.lng subsidiary.longitude
+    end
   end
 
   # GET /subsidiaries/new
@@ -70,6 +75,6 @@ class SubsidiariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subsidiary_params
-      params.require(:subsidiary).permit(:name, :address, :phone, :photo, :photo_cache)
+      params.require(:subsidiary).permit(:name, :address, :phone, :photo, :photo_cache,:latitude,:longitude)
     end
-end
+  end

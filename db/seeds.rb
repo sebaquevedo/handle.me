@@ -16,9 +16,9 @@ AdminUser.destroy_all
 
 AdminUser.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456')
 
-s1 = Subsidiary.create(name:'alameda',address: 'lib bdo ohiggins 667',phone:'87945613')
-s2 = Subsidiary.create(name:'las rejas',address: 'las rejas 5455',phone:'78451987')
-s3 = Subsidiary.create(name:'apoquindo',address: 'apoquindo 569',phone:'64687513')
+s1 = Subsidiary.create(name:'cumming',address: 'Cumming 500, Santiago',phone:'87945613')
+s2 = Subsidiary.create(name:'las rejas',address: 'Las Rejas Sur 5455, Santiago',phone:'78451987')
+s3 = Subsidiary.create(name:'apoquindo',address: 'Apoquindo Oriente 5690, Las Condes',phone:'64687513')
 
 u1 = Ubication.create(name: 'sala talleres',capacity: 25, subsidiary_id: s1.id)
 u2 = Ubication.create(name: 'sala capacitaciones',capacity: 30, subsidiary_id: s1.id)

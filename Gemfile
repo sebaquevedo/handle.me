@@ -15,6 +15,9 @@ gem 'activeadmin', github: 'activeadmin' #to give posibility to manage resources
 gem 'cancancan' #for giving role managing posibilities
 gem 'fullcalendar-rails' # to show users reservations and activities related to them
 gem 'momentjs-rails'
+gem 'geocoder' #to get latitude and longitude for subsidiary address
+gem 'gmaps4rails' #to generate map from subsidiary addres
+gem 'underscore-rails' #no idea for what purpose, just following rules
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'

@@ -103,8 +103,10 @@ GEM
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
       momentjs-rails (>= 2.9.0)
+    geocoder (1.4.3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     has_scope (0.7.0)
       actionpack (>= 4.1, < 5.1)
       activesupport (>= 4.1, < 5.1)
@@ -227,6 +229,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.1.5)
       execjs (>= 0.3.0, < 3)
+    underscore-rails (1.8.3)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.4.0)
@@ -251,6 +254,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   fullcalendar-rails
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -265,6 +270,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
+  underscore-rails
   web-console (>= 3.3.0)
 
 BUNDLED WITH

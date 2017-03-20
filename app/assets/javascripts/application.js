@@ -19,6 +19,8 @@
 //= require bootstrap.js
 //= require moment 
 //= require fullcalendar
+//= require underscore
+//= require gmaps/google
 
 
 $('#calendar').fullCalendar({});	
