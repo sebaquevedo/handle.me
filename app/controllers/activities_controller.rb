@@ -4,7 +4,10 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
+    #@subsidiary = Subsidiary.find(id: params[:subsidiary_id])
+    @activities = Activity.where(enabled: true)
+    
+
   end
 
   # GET /activities/1
@@ -12,6 +15,25 @@ class ActivitiesController < ApplicationController
   def show
   end
 
+  def takeroom
+    @activity = Activity.find(params[:activity_id])
+    unless @activity.capacity < 1 or @activity.user_activities.where(user_id: current_user.id)
+      @activity.capacity -= 1
+      @activity.save
+      @activity.user_activities.build(user_id:current_user.id)
+
+      respond_to do |format|
+        if @activity.save
+          format.html { redirect_to @activity , notice: 'El cupo ha sido tomado con exito.' }
+          format.json { render :show, status: :created, location: @activity }
+        else
+          format.html { render :new }
+          format.json { render json: @activity.errors, status: :unprocessable_entity }
+        end
+      end
+
+    end
+  end
   # GET /activities/new
   def new
     @activity = Activity.new
@@ -28,7 +50,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
+        format.html { redirect_to @activity , notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @activity }
       else
         format.html { render :new }
@@ -69,6 +91,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :description, :enabled, :capacity, :photo, :photo_cache)
+      params.require(:activity).permit(:name, :description, :enabled, :capacity, :photo, :photo_cache, :subsidiary_id)
     end
-end
+  end

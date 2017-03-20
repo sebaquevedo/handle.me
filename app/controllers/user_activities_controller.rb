@@ -10,6 +10,7 @@ class UserActivitiesController < ApplicationController
   # GET /user_activities/1
   # GET /user_activities/1.json
   def show
+
   end
 
   # GET /user_activities/new
@@ -74,7 +75,7 @@ class UserActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_activity_params
-       params.permit(:user_id, :activity_id)
+       params.require(:user_activity).permit(:user_id, :id, :user_activity, :activity_id)
     end
 
 end

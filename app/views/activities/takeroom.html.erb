@@ -1,0 +1,5 @@
+<div class="well">
+	<p> Ya haz tomado un cupo en la clase <%= @activity.name %></p>
+	<p> Quedan  <%= @activity.capacity %> cupos para  <%= @activity.name %></p>
+	<%= link_to 'Volver a mis actividades', user_user_activities_path(current_user.id), class: 'btn btn-primary' %>
+</div>

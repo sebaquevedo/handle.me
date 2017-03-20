@@ -1,33 +1,30 @@
 
+<div class="page-header">
+  <h1>Subsidiaries</h1>
+</div>
 
-<h1>Subsidiaries</h1>
+<div class="row">
+  <% @subsidiaries.each do |subsidiary| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= image_tag(subsidiary.photo, class:"img-responsive")  %>
 
-  <tbody>
-    <div class="row">
-    <% @subsidiaries.each do |subsidiary| %>
-    
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="..." alt="...">
-          <div class="caption">
-          <h3> Sucursal <%= subsidiary.name %></h3>
-          <h4> Direccion: <%= subsidiary.address %></h4>
-          <h4>Telefono: <%= subsidiary.phone %></h4>
-            <p>...</p>
-            <p><%= link_to 'Ver ',subsidiary, class: 'btn btn-primary' %></p>
-          </div>
+      <div class="caption">
+        <h3> Sucursal <%= subsidiary.name %></h3>
+        <h4> Direccion: <%= subsidiary.address %></h4>
+        <h4> Telefono: <%= subsidiary.phone %></h4>
+
+        <p><%= link_to 'Ver ',subsidiary_path(subsidiary), class: 'btn btn-primary' %>
+          <% if can? :edit, Subsidiary%>
+          <%= link_to 'Edit', edit_subsidiary_path(subsidiary),class: 'btn btn-primary' %>
+          <% end %>
+          <% if can? :destroy, Subsidiary%>
+          <%= link_to 'Destroy', subsidiary, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-primary' %></p>
+          <% end %>
         </div>
       </div>
+    </div>
     
  <!--    <tr>
       <td><%= subsidiary.name %></td>
@@ -42,10 +39,10 @@
       <% end  %>
     </tr> -->
     <% end %>
-    </div>
-  </tbody>
+  </div>
+  
 </table>
 
 <br>
 
-<%= link_to 'New Subsidiary', new_subsidiary_path, class: 'btn btn-primary' %>
+<!-- <%= link_to 'New Subsidiary', new_subsidiary_path, class: 'btn btn-primary' %> -->

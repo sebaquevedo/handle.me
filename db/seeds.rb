@@ -8,9 +8,9 @@
 
 Reservation.destroy_all
 Ubication.destroy_all
-Subsidiary.destroy_all
 UserActivity.destroy_all
 Activity.destroy_all
+Subsidiary.destroy_all
 User.destroy_all
 AdminUser.destroy_all
 
@@ -26,6 +26,7 @@ u3 = Ubication.create(name: 'gimnasio techado',capacity: 50, subsidiary_id: s1.i
 
 a = User.create(email:'seb@seb.cl',password: '123456',name:'seba')
 b = User.create(email:'use@use.cl',password: '123456',name:'userx')
+b = User.create(email:'example@admin.cl',password: '123456',name:'admin')
 
 
 d1 = 2.days.from_now.change(hour: 7)
@@ -37,9 +38,9 @@ d4 = 3.days.from_now.change(hour: 16)
 d5 = 4.days.from_now.change(hour: 11)
 d6 = 4.days.from_now.change(hour: 12)
 
-act1 = Activity.create(name: 'clases regulares pole dance', description: 'taller orientado a show blabla', enabled: true, capacity:12)
-act2 = Activity.create(name: 'crossfit', description: 'entrenamiento intensivo', enabled: true, capacity:25)
-act3 = Activity.create(name: 'danza ballet', description: 'de 7 a 15 años', enabled: true, capacity:30)
+act1 = Activity.create(subsidiary_id:s1.id,name: 'clases regulares pole dance', description: 'taller orientado a show blabla', enabled: true, capacity:12)
+act2 = Activity.create(subsidiary_id:s1.id,name: 'crossfit', description: 'entrenamiento intensivo', enabled: true, capacity:25)
+act3 = Activity.create(subsidiary_id:s1.id,name: 'danza ballet', description: 'de 7 a 15 años', enabled: false, capacity:30)
 
 
 Reservation.create(init_date: d1,end_date:d2,cost: 15000, user_id: a.id, ubication_id: u1.id,activity_id:act1.id)

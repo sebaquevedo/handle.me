@@ -1,8 +1,8 @@
 
 
 <h1>Ubications</h1>
-
-<table>
+ 
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,6 +15,7 @@
   <tbody>
     <% @ubications.each do |ubication| %>
       <tr>
+
         <td><%= ubication.name %></td>
         <td><%= ubication.capacity %></td>
         <td><%= ubication.subsidiary.name %></td>

@@ -7,9 +7,16 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.admin?
         can :manage, :all
+      elsif user.guest? 
+         can :read, UserActivity
+         can :read, Ubication
+         can :read, Reservation
+         can :read, Subsidiary
       else
-        can :read, :all
+        can [:read], Activity
       end
+
+
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

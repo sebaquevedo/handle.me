@@ -10,6 +10,7 @@ class SubsidiariesController < ApplicationController
   # GET /subsidiaries/1
   # GET /subsidiaries/1.json
   def show
+    @activities = @subsidiary.activities.where(enabled: true)
   end
 
   # GET /subsidiaries/new
@@ -69,6 +70,6 @@ class SubsidiariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subsidiary_params
-      params.require(:subsidiary).permit(:name, :address, :phone)
+      params.require(:subsidiary).permit(:name, :address, :phone, :photo, :photo_cache)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319203911) do
+ActiveRecord::Schema.define(version: 20170320051021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 20170319203911) do
     t.text     "description"
     t.boolean  "enabled"
     t.integer  "capacity"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "photo"
+    t.integer  "subsidiary_id"
+    t.index ["subsidiary_id"], name: "index_activities_on_subsidiary_id", using: :btree
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 20170319203911) do
     t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "photo"
   end
 
   create_table "ubications", force: :cascade do |t|
@@ -115,6 +118,7 @@ ActiveRecord::Schema.define(version: 20170319203911) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "activities", "subsidiaries"
   add_foreign_key "reservations", "activities"
   add_foreign_key "reservations", "ubications"
   add_foreign_key "reservations", "users"

@@ -1,6 +1,16 @@
-<h1>Editing Subsidiary</h1>
 
-<%= render 'form', subsidiary: @subsidiary %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="well">
+			<h1>Editing Subsidiary</h1>
 
-<%= link_to 'Show', @subsidiary %> |
-<%= link_to 'Back', subsidiaries_path %>
+			<%= render 'form', subsidiary: @subsidiary %>
+
+			<% if can? :edit, Subsidiary %>
+			<%= link_to 'Ver', @subsidiary,class: 'btn btn-primary' %>
+			<% end %> 
+
+			<%= link_to 'Volver', subsidiaries_path,class: 'btn btn-primary' %>
+		</div>
+	</div>
+</div>
